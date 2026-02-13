@@ -1,146 +1,212 @@
-/* Reset Dasar */
+/* --- RESET & GLOBAL --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #0a0a0a; /* Hitam pekat agar video 'pop' */
-    color: #f0f0f0;
-    padding: 40px 20px;
-    max-width: 1000px; /* Membatasi lebar agar tidak terlalu melebar di layar besar */
-    margin: 0 auto; /* Posisi tengah */
+    background-color: #0f0f12; /* Warna latar sangat gelap (bukan hitam pekat) */
+    color: #e0e0e0;
+    line-height: 1.6;
 }
 
-/* Header */
+/* Membatasi lebar konten agar rapi di Laptop besar */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- HEADER --- */
 header {
     text-align: center;
     margin-bottom: 50px;
+    padding-top: 20px;
 }
 
 header h1 {
     font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 5px;
+    color: #fff;
     letter-spacing: -1px;
-    margin-bottom: 10px;
 }
 
-.subtitle {
+/* Efek Glow dikit biar keren */
+.glow-text {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.role {
     font-size: 1.2rem;
-    color: #888;
-    margin-bottom: 20px;
+    color: #4a90e2; /* Aksen warna biru */
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
-.bio {
-    max-width: 600px;
+.desc {
+    color: #888;
+    max-width: 500px;
     margin: 0 auto;
-    color: #ccc;
-    line-height: 1.5;
 }
 
-/* Video Container (Responsive 16:9) */
-.video-container {
+/* --- MAIN SHOWREEL --- */
+.main-showreel {
+    margin-bottom: 60px;
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Rasio 16:9 */
-    background-color: #1a1a1a; /* Placeholder saat loading */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.video-container iframe {
+.badge {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Bayangan biar video 'melayang' */
+}
+
+/* Border khusus untuk video utama */
+.main-video {
+    border: 2px solid #333;
+}
+
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
-}
-
-/* Showreel Utama */
-.showreel-wrapper {
-    margin-bottom: 60px;
-}
-
-.caption {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #666;
+    border: 0;
 }
 
 /* Garis Pemisah */
 .divider {
-    border: 0;
     height: 1px;
-    background: #333;
-    margin: 40px 0;
+    background: linear-gradient(to right, transparent, #333, transparent);
+    margin: 50px 0;
 }
 
-/* Grid Gallery */
-.gallery-grid {
+/* --- GALLERY GRID (RESPONSIF) --- */
+.gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Video lebih besar */
-    gap: 40px;
-    margin-bottom: 80px;
+    /* Ini kuncinya: Otomatis 1 kolom di HP, 2 di Tablet, 3 di Laptop */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.project-item h3 {
-    margin-top: 15px;
+.card {
+    background-color: #1a1a1e;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #2a2a2e;
+}
+
+/* Efek Hover: Naik dikit saat kursor nempel */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    border-color: #4a90e2;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
     font-size: 1.1rem;
-    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
 }
 
-.project-item p {
-    font-size: 0.9rem;
-    color: #777;
+.card-info p {
+    font-size: 0.85rem;
+    color: #aaa;
 }
 
-/* Footer */
+/* --- FOOTER --- */
 footer {
     text-align: center;
-    padding-top: 40px;
+    margin-top: 80px;
+    padding: 40px 0;
     border-top: 1px solid #222;
 }
 
-footer p {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.email-link {
-    display: block;
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
+footer h2 {
+    font-size: 1.8rem;
     margin-bottom: 20px;
+    color: #fff;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 30px;
 }
 
-.email-link:hover {
-    text-decoration: underline;
+.cta-button:hover {
+    background-color: #4a90e2;
+    color: #fff;
 }
 
-.social-links a {
+.socials a {
     color: #888;
     text-decoration: none;
     margin: 0 10px;
     font-size: 0.9rem;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
-.social-links a:hover {
+.socials a:hover {
     color: #fff;
 }
 
-/* Responsif untuk HP */
+.copyright {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* --- KHUSUS HP (Screen Kecil) --- */
 @media (max-width: 600px) {
-    header h1 { font-size: 2rem; }
-    .gallery-grid { grid-template-columns: 1fr; } /* Di HP jadi 1 kolom ke bawah */
-    .email-link { font-size: 1.2rem; }
+    header h1 {
+        font-size: 2.2rem; /* Font judul lebih kecil di HP */
+    }
+    
+    .container {
+        padding: 20px 15px; /* Padding pinggir lebih tipis di HP */
+    }
+    
+    .role {
+        font-size: 1rem;
+    }
+    
+    /* Di HP, grid otomatis jadi 1 kolom karena 'minmax' di atas, 
+       tapi kita bisa pastikan margin antar kartu pas */
+    .gallery {
+        gap: 20px;
+    }
 }
