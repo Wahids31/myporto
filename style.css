@@ -1,0 +1,261 @@
+/* --- RESET & DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505; /* Hampir hitam pekat */
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden; /* Mencegah scroll ke samping */
+}
+
+/* Scrollbar Keren (Chrome/Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6200ea;
+}
+
+/* --- HERO SECTION (LAYAR PENUH) --- */
+.hero {
+    height: 100vh; /* Tinggi 100% layar HP/Laptop */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Background Gradient Mewah */
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    position: relative;
+    padding: 20px;
+}
+
+/* Animasi Masuk (Fade In Up) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    animation: fadeInUp 1.2s ease-out forwards;
+    z-index: 2;
+}
+
+.intro-text {
+    font-size: 1rem;
+    letter-spacing: 5px; /* Spasi antar huruf lebar */
+    color: #888;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.big-name {
+    font-family: 'Oswald', sans-serif; /* Font Tebal */
+    font-size: clamp(3rem, 10vw, 8rem); /* Responsif: minimal 3rem, max 8rem */
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+    /* Efek Text Gradient */
+    background: linear-gradient(to right, #fff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sub-role {
+    font-size: 1rem;
+    color: #6200ea; /* Aksen Ungu Neon */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: 0.4s;
+}
+
+.btn-main:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Efek cahaya */
+}
+
+/* Indikator Scroll (Panah Gerak) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.scroll-indicator span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scrollAnim 2s infinite;
+}
+@keyframes scrollAnim {
+    0% { opacity: 0; transform: rotate(45deg) translate(-20px, -20px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(20px, 20px); }
+}
+
+/* --- CONTENT AREA --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.section-title {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-title h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.section-title .line {
+    width: 100%;
+    height: 1px;
+    background: #333;
+}
+
+/* --- SHOWREEL --- */
+.showreel-frame {
+    margin-bottom: 100px;
+    border: 1px solid #333;
+    padding: 10px; /* Frame effect */
+    background: #111;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- GALLERY GRID --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Video Besar */
+    gap: 40px;
+}
+
+.gallery-item {
+    background: #000;
+    position: relative;
+}
+
+.gallery-item h3 {
+    margin-top: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #e0e0e0;
+}
+
+.gallery-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 150px;
+    text-align: center;
+    padding-bottom: 50px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 50px;
+}
+
+footer h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.email-btn {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #6200ea;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px 0;
+    transition: 0.3s;
+}
+
+.email-btn:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #6200ea;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.socials a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: #fff;
+    letter-spacing: 4px; /* Efek melebar saat hover */
+}
+
+.copyright {
+    color: #333;
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIF HP --- */
+@media (max-width: 768px) {
+    .big-name { font-size: 3.5rem; }
+    .hero { padding: 0 15px; }
+    .gallery-grid { grid-template-columns: 1fr; } /* 1 Kolom di HP */
+    footer h2 { font-size: 1.8rem; }
+}
