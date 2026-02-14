@@ -6,10 +6,17 @@
     <title>Portofolio Animasi Saya</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            outline: none;
+        }
+    </style>
 </head>
-<body>
-
-    <div class="container">
+<body oncontextmenu="return false;"> <div class="container">
         
         <header>
             <h1 class="glow-text">NAMA ANDA</h1>
@@ -20,7 +27,10 @@
         <section class="main-showreel">
             <div class="badge">Showreel Terbaru</div>
             <div class="video-wrapper main-video">
-                <iframe src="3.mp4" title="Main Showreel" allowfullscreen></iframe>
+                <video controls controlsList="nodownload" oncontextmenu="return false;">
+                    <source src="3.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video tag.
+                </video>
             </div>
         </section>
 
@@ -30,7 +40,9 @@
             
             <div class="card">
                 <div class="video-wrapper">
-                    <iframe src="SIMPLE MAN.mp4" loading="lazy" allowfullscreen></iframe>
+                    <video controls controlsList="nodownload" oncontextmenu="return false;">
+                        <source src="SIMPLE MAN.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="card-info">
                     <h3>Project Alpha</h3>
@@ -82,6 +94,16 @@
         </footer>
 
     </div>
+
+    <script>
+        document.addEventListener('keydown', function(e) {
+            // Mencegah CTRL+S (Save) atau CTRL+U (View Source)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) {
+                e.preventDefault();
+                alert('Fitur download dimatikan untuk perlindungan hak cipta.');
+            }
+        });
+    </script>
 
 </body>
 </html>
